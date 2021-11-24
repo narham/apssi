@@ -33,7 +33,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                    <span class="info-box-icon bg-green"><i class="fa fa-file"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">UPDATE DATA</span>
@@ -59,7 +59,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+                    <span class="info-box-icon bg-red"><i class="fa fa-file-text"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Belum Lisensi</span>
@@ -87,7 +87,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                    <span class="info-box-icon bg-green"><i class="fa fa-clipboard"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Register</span>
@@ -146,6 +146,7 @@
                             <th>Lisensi</th>
                             <th>Foto</th>
                             <th>Aksi</th>
+                            <th>Pengalaman</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -177,20 +178,15 @@
 
 
                             </td>
+                            <td>
+                                <a href="<?= base_url('pelatih/detail/' . $key['id_pelatih']); ?>"
+                                    class="btn btn-success"><i class="fa fa-book" aria-hidden="true"></i>
+                                    Detail</a>
+                            </td>
 
                         </tr>
                         <?php } ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Rendering engine</th>
-                            <th>Browser</th>
-                            <th>Platform(s)</th>
-                            <th>Engine version</th>
-                            <th>CSS grade</th>
-                            <th>CSS grade</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
             <!-- /.box-body -->

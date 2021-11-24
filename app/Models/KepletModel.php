@@ -39,4 +39,13 @@ class KepletModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function keplet($id_pelatih)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('data_kepelatihan');
+        $query   = $builder->where('id_pelatih', $id_pelatih)->get();
+        return $query->getResultArray();
+    }
 }

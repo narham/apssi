@@ -43,7 +43,7 @@ class PelatihModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function pelatih_by_id($id)
+    public function pelatih_by_id()
     {
         $db = \Config\Database::connect();
         $builder = $db->table('pelatih');

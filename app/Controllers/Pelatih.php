@@ -3,9 +3,12 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\BerkasModel;
 use App\Models\LisensiModel;
 use App\Models\PelatihModel;
-use App\Models\DokumenLisensi;
+// use App\Models\DokumenLisensi;
+use App\Models\KepletModel;
+
 
 class Pelatih extends BaseController
 {
@@ -221,5 +224,19 @@ class Pelatih extends BaseController
         $pelatihModel->update($id_pelatih, $data);
         session()->setFlashdata('pesan', "Pelatih Berhasil di Registrasi");
         return redirect()->to(base_url('admin'));
+    }
+
+    public function detail($id_pelatih = null)
+    {
+        $pelatih = new PelatihModel();
+        $lisensi = new BerkasModel();
+        $keplet = new KepletModel();
+        $data = [
+            'pelatih' => $pelatih->where('id_pelatih', $id_pelatih)->first(),
+            'keplet' => $keplet->keplet($id_pelatih),
+            'lisensi' => $lisensi->getlisensi($id_pelatih)
+
+        ];
+        return view('detail_pelatih', $data);
     }
 }

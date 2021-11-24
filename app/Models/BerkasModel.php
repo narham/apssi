@@ -39,4 +39,12 @@ class BerkasModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getlisensi($id_pelatih)
+    {
+        $db = \Config\Database::connect();
+        $builder = $db->table('berkas');
+        $query   = $builder->where('id_pelatih', $id_pelatih)->get();
+        return $query->getResultArray();
+    }
 }
