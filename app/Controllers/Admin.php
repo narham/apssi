@@ -12,6 +12,13 @@ use App\Models\LisensiModel;
 
 class Admin extends BaseController
 {
+    public function __construct()
+    {
+        if (session()->get('akses') != 2) {
+            echo 'Access Anda di tolak';
+            exit;
+        }
+    }
     public function index()
     {
         // Dashboard Admin

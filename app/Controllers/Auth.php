@@ -117,8 +117,23 @@ class Auth extends BaseController
                         $session->set($ses_data);
 
                         return redirect()->to(base_url('home'));
-                    } #masukkan tambahan rule
+                    } else {
+                        $ses_data = [
 
+                            'id'     => $data['id_pelatih'],
+                            'username'     => $data['username'],
+                            'email'    => $data['email'],
+                            'akses'    => $data['akses'],
+                            'nama'    => $data['nama'],
+                            'panggilan'    => $data['nama_panggilan'],
+                            'foto'    => $data['foto'],
+                            'login'     => TRUE
+                        ];
+                        // dd($ses_data);
+                        $session->set($ses_data);
+
+                        return redirect()->to(base_url('Admin'));
+                    }
                 } else {
                     $session->setFlashdata('error', 'Password Salah');
                     return redirect()->to('Auth');

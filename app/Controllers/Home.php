@@ -9,8 +9,9 @@ class Home extends BaseController
 
     public function __construct()
     {
-        if (isset($_SESSION['nama'])) {
-            return redirect()->to(base_url('Auth'));
+        if (session()->get('akses') != 1) {
+            echo 'Akses Ditolak';
+            exit;
         }
     }
     public function index()

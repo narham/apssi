@@ -34,6 +34,18 @@ $routes->setAutoRoute(true);
 // $routes->get('/', 'Home::index');
 
 $routes->get('/', 'Auth::index');
+
+
+// $routes->match(['get', 'post'], 'Auth', 'Auth::login', ["filter" => "NoAuth"]);
+// Admin routes
+// $routes->group("Admin", ["filter" => "Auth"], function ($routes) {
+// $routes->get("/", "Admin::index");
+// });
+// Editor routes
+// $routes->group("Home", ["filter" => "Auth"], function ($routes) {
+// $routes->get("/", "Home::index");
+// });
+// $routes->get('logout', 'Auth::logout');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
