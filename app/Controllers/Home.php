@@ -9,9 +9,11 @@ class Home extends BaseController
 
     public function __construct()
     {
+
         if (session()->get('akses') != 1) {
-            echo 'Akses Ditolak';
+            echo 'Access Anda di tolak';
             exit;
+            return redirect()->to(base_url('Home'));
         }
     }
     public function index()

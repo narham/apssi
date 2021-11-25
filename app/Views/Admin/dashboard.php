@@ -46,7 +46,7 @@
             <!-- /.col -->
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="info-box">
-                    <span class="info-box-icon bg-yellow"><i class="fa fa-files-o"></i></span>
+                    <span class="info-box-icon bg-yellow"><i class="fa fa-edit"></i></span>
 
                     <div class="info-box-content">
                         <span class="info-box-text">Belum Update</span>
@@ -137,57 +137,59 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="pelatih" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>No Register</th>
-                            <th>Nama Pelatih</th>
-                            <th>NIK</th>
-                            <th>Lisensi</th>
-                            <th>Foto</th>
-                            <th>Aksi</th>
-                            <th>Pengalaman</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($getpelatih as $key) { ?>
+                <div class="col">
+                    <table id="pelatih" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No Register</th>
+                                <th>Nama Pelatih</th>
+                                <th>NIK</th>
+                                <th>Lisensi</th>
+                                <th>Foto</th>
+                                <th>Aksi</th>
+                                <th>Pengalaman</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($getpelatih as $key) { ?>
 
 
-                        <tr>
-                            <td><?php if ($key['noreg'] == "") {
+                            <tr>
+                                <td><?php if ($key['noreg'] == "") {
 
-                                        echo '<span class="label label-danger">Belum Diregister</span>';
-                                    } else {
+                                            echo '<span class="label label-danger">Belum Diregister</span>';
+                                        } else {
 
-                                        echo $key['noreg'];
-                                    }
-                                    ?></td>
-                            <td><?= $key['nama']; ?>
-                            </td>
-                            <td><?= $key['nik']; ?></td>
-                            <td><?= $key['lisensi']; ?></td>
-                            <td><img class="img" width="50" src="<?= base_url(); ?>/foto/<?= $key['foto']; ?>"
-                                    alt="Foto">
-                            </td>
-                            <td> <?php if ($key['noreg'] == "") { ?>
-                                <a href="<?= base_url('pelatih/noreg/' . $key['id_pelatih']); ?>"
-                                    class="btn btn-primary">Registrasi</a>
-                                <?php } ?>
+                                            echo $key['noreg'];
+                                        }
+                                        ?></td>
+                                <td><?= $key['nama']; ?>
+                                </td>
+                                <td><?= $key['nik']; ?></td>
+                                <td><?= $key['lisensi']; ?></td>
+                                <td><img class="img" width="50" src="<?= base_url(); ?>/foto/<?= $key['foto']; ?>"
+                                        alt="Foto">
+                                </td>
+                                <td> <?php if ($key['noreg'] == "") { ?>
+                                    <a href="<?= base_url('pelatih/noreg/' . $key['id_pelatih']); ?>"
+                                        class="btn btn-primary">Registrasi</a>
+                                    <?php } ?>
 
-                                <span class="label label-success"><?= $key['noreg']; ?></span>
+                                    <span class="label label-success"><?= $key['noreg']; ?></span>
 
 
-                            </td>
-                            <td>
-                                <a href="<?= base_url('pelatih/detail/' . $key['id_pelatih']); ?>"
-                                    class="btn btn-success"><i class="fa fa-book" aria-hidden="true"></i>
-                                    Detail</a>
-                            </td>
+                                </td>
+                                <td>
+                                    <a href="<?= base_url('pelatih/detail/' . $key['id_pelatih']); ?>"
+                                        class="btn btn-success"><i class="fa fa-book" aria-hidden="true"></i>
+                                        Detail</a>
+                                </td>
 
-                        </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
+                            </tr>
+                            <?php } ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!-- /.box-body -->
         </div>

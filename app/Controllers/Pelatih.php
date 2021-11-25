@@ -239,4 +239,9 @@ class Pelatih extends BaseController
         ];
         return view('detail_pelatih', $data);
     }
+
+    public function profile($id_pelatih = null)
+    {
+        return view('profile');
+    }
 }

@@ -70,6 +70,8 @@
                             <?php foreach ($lisensi as $key) { ?>
                             <td><?= $key['keterangan']; ?></td>
                             <td><?= $key['tgl_lisensi']; ?></td>
+                            <td><a href="<?= base_url(); ?>/lisensi/<?= $key['berkas']; ?>"></a>
+                            </td>
 
 
 
