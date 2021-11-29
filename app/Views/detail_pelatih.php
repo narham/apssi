@@ -29,13 +29,24 @@
                             </div>
                             <div class="box-footer no-padding">
                                 <ul class="nav nav-stacked">
-                                    <li><a href="#">NIK : <span class="pull-right badge bg-blue">31</span></a>
+                                    <li><a href="#">NIK : <span
+                                                class="pull-right badge bg-blue"><?= $pelatih['nik']; ?></span></a>
                                     </li>
-                                    <li><a href="#">ALAMAT : <span class="pull-right badge bg-aqua">5</span></a></li>
-                                    <li><a href="#">Tanggal Lahir <span class="pull-right badge bg-green">12</span></a>
+                                    <li><a href="#">ALAMAT : <span
+                                                class="pull-right badge bg-aqua"><?= $pelatih['alamat']; ?></span></a>
                                     </li>
-                                    <li><a href="#">Followers <span class="pull-right badge bg-red">842</span></a></li>
+                                    <li><a href="#">Tanggal Lahir <span
+                                                class="pull-right badge bg-green"><?php $pelatih['tgl_lahir'] ?><?= $pelatih['tgl_lahir']; ?></span></a>
+                                    </li>
+                                    <br>
+                                    <?php if ($pelatih['noreg'] == "") { ?>
+                                    <a href="<?= base_url('pelatih/noreg/' . $pelatih['id_pelatih']); ?>"
+                                        class="btn btn-primary">Registrasi</a>
+                                    <?php } ?>
+
                                 </ul>
+                            </div> <br>
+                            <div>
                             </div>
                         </div>
                         <!-- /.widget-user -->
@@ -43,7 +54,7 @@
                     <div class="col-md-4">
                         <div class="widget-user-image">
                             <img class="img" width="250" src="<?= base_url(); ?>/foto/<?= $pelatih['foto']; ?>"
-                                alt="User Avatar">
+                                alt="User Foto">
                         </div>
                     </div>
                 </div>
@@ -62,6 +73,7 @@
                         <tr>
                             <th>Lisensi</th>
                             <th>Tanggal Lisensi</th>
+                            <th>Lisensi</th>
 
                         </tr>
                     </thead>
@@ -70,7 +82,11 @@
                             <?php foreach ($lisensi as $key) { ?>
                             <td><?= $key['keterangan']; ?></td>
                             <td><?= $key['tgl_lisensi']; ?></td>
-                            <td><a href="<?= base_url(); ?>/lisensi/<?= $key['berkas']; ?>"></a>
+                            <td>
+                                <div class="widget-user-image">
+                                    <img class="img" width="200" src="<?= base_url(); ?>/lisensi/<?= $key['berkas']; ?>"
+                                        alt="User Lisensi">
+                                </div>
                             </td>
 
 

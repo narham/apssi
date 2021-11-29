@@ -85,6 +85,7 @@
                                             <th>Lisensi</th>
                                             <th>Tanggal Lisensi</th>
                                             <th>Foto Lisensi</th>
+
                                             <th>Aksi</th>
 
                                         </tr>
@@ -100,6 +101,7 @@
                                             <td><?= $row['tgl_lisensi']; ?></td>
                                             <td><img width="150px" class="img-thumbnail"
                                                     src="<?= base_url(); ?>/lisensi/<?= $row['berkas']; ?>"></td>
+
                                             <td>
                                                 <a href="<?= base_url('pemutakhiran/hapus_lisensi/' . $row['id_berkas']); ?>"
                                                     class="btn btn-danger"><i class="fa fa-trash"

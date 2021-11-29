@@ -17,7 +17,8 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Auth');
+// $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -33,17 +34,21 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 // $routes->get('/', 'Home::index');
 
-$routes->get('/', 'Auth::index');
+// $routes->get('/', 'Auth::index');
+$routes->group('admin', function ($routes) {
+    $routes->get('/', 'Admin::index');
+    // $routes->add('blog', 'Admin\Blog::index');
+});
 
 
-// $routes->match(['get', 'post'], 'Auth', 'Auth::login', ["filter" => "NoAuth"]);
-// Admin routes
-// $routes->group("Admin", ["filter" => "Auth"], function ($routes) {
-// $routes->get("/", "Admin::index");
+// $routes->match(['get', 'post'], 'auth', 'Auth::login', ["filter" => "noauth"]);
+// // Admin routes
+// $routes->group("Admin", ["filter" => "auth"], function ($routes) {
+//     $routes->get("/", "Admin::index");
 // });
-// Editor routes
-// $routes->group("Home", ["filter" => "Auth"], function ($routes) {
-// $routes->get("/", "Home::index");
+// // Editor routes
+// $routes->group("Home", ["filter" => "auth"], function ($routes) {
+//     $routes->get("/", "Home::index");
 // });
 // $routes->get('logout', 'Auth::logout');
 /*

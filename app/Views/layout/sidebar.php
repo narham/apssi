@@ -15,7 +15,7 @@
             </div>
         </div>
         <!-- sidebar menu: : style can be found in sidebar.less -->
-        <ul class="sidebar-menu" data-widget="tree">
+        <!-- <ul class="sidebar-menu" data-widget="tree">
 
             <li class="treeview">
                 <a href="">
@@ -53,10 +53,10 @@
                 if ($sub_menu->get()->getnumrows() > 0) {
                     if ($main->id_menu > 0) {
                         // Main menu yang memiliki sub menu
-                        echo "<li class='treeview'>" . anchor($main->link, '<i class="' . $main->icon . '"></i>' . $main->menu .
-                            '<span class="pull-right-container">
-							  <i class="fa fa-angle-left pull-right"></i>
-							  </span>');
+                        echo "<li class='treeview'>";
+                        echo  '<span class="pull-right-container">';
+                        echo     ' <i class="fa fa-angle-left pull-right"></i>';
+                        echo ' </span>';
                         // Menampilkan data sub menu
                         echo "<ul class='treeview-menu'>";
                         foreach ($sub_menu->result() as $sub) {
@@ -76,12 +76,20 @@
             }
 
             ?>
-        </ul>
+        </ul> -->
 
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MASTER</li>
-            <li><a href="<?= base_url('home'); ?>"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a>
-            </li>
+            <?php
+            if (session()->get('akses') == 1) {
+                echo "<li>" . anchor("Home", '<i class="fa fa-tachometer"></i>' . "Dashboard") . "</li>";
+            } elseif (session()->get('akses') == 2) {
+                # code...
+                echo "<li>" . anchor("Admin", '<i class="fa fa-tachometer"></i>' . "Dashboard") . "</li>";
+            }
+
+            ?>
+
             <li><a href="<?= base_url('pemutakhiran'); ?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i>
                     Pemutakhiran Data</a></li>
             <li class="header">Personal</li>
@@ -108,23 +116,21 @@
                     <li><a href="">Baca Email</a></li>
                 </ul>
             </li>
-            <li class="header">LABELS</li>
             <li class="treeview">
                 <a href="">
                     <i class="fa fa-gears"></i> <span>Setting</span>
                 </a>
                 <ul class="treeview-menu">
+                    <li class="active"><a href=""><i class="fa fa-exchange" aria-hidden="true"></i> Ganti Password</a>
+                    </li>
                     <li>
-                        <a href="">Kotak Masuk
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">13</span>
-                            </span>
+                        <a href=""><i class="fa fa-picture-o" aria-hidden="true"></i> Ganti Foto
                         </a>
                     </li>
-                    <li class="active"><a href="">Tulis Email</a></li>
-                    <li><a href="">Baca Email</a></li>
+
                 </ul>
             </li>
+
             <li class="header">LABELS</li>
             <li><a href="<?= base_url('informasi/penting'); ?>"><i class="fa fa-circle-o text-red"></i>
                     <span>Penting</span></a>

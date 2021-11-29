@@ -27,7 +27,7 @@ class Auth implements FilterInterface
     {
         //
         if (!session()->get('login')) {
-            return redirect()->to(site_url('Auth'));
+            return redirect()->to(base_url('Auth'));
         }
     }
 

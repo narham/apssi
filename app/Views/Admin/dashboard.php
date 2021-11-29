@@ -190,10 +190,13 @@
                         </tbody>
                     </table>
                 </div>
+
             </div>
             <!-- /.box-body -->
         </div>
     </section>
+
+
 </div>
 
 <?= $this->endSection(); ?>

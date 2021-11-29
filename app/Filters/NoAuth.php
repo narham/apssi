@@ -30,9 +30,8 @@ class NoAuth implements FilterInterface
 
             if (session()->get('akses') == 2) {
                 return redirect()->to(base_url('Admin'));
-            }
-
-            if (session()->get('akses') == 1) {
+            } elseif (session()->get('akses') == 1) {
+                # code...
                 return redirect()->to(base_url('home'));
             }
         }

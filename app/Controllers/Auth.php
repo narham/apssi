@@ -116,7 +116,7 @@ class Auth extends BaseController
                         // dd($ses_data);
                         $session->set($ses_data);
 
-                        return redirect()->to(base_url('home'));
+                        return redirect()->to(base_url('Home'));
                     } else {
                         $ses_data = [
 
