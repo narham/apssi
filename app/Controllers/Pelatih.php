@@ -97,10 +97,27 @@ class Pelatih extends BaseController
         // Validasi Inputan
         if ($this->validate([
             'id' => 'required',
-            'nama' => 'required',
-            'nama_panggilan' => 'required',
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => "Nama harus di isi"
+                ],
+            ],
+
+            'nama_panggilan' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Masukkan Nama Panggilan'
+                ]
+            ],
             'alamat' => 'required',
-            'nik' => 'required',
+            'nik' => [
+                'rules' => 'required|is_unique[pelatih.nik]',
+                'errors' => [
+                    'required' => "Masukkan NIK",
+                    'is_unique' => "NIK sudah terdaftar"
+                ]
+            ],
             'lisensi' => 'required',
             'tgl_lisensi' => 'required',
             'notel' => 'required',

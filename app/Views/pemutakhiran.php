@@ -166,7 +166,8 @@
 
                                 </table>
                             </div>
-                            <a href="<?= base_url('pemutakhiran/dataKeplet'); ?>" class="btn btn-primary"> Update Data
+                            <a href="<?= base_url('pemutakhiran/dataKeplet'); ?>" class="btn btn-primary"><i
+                                    class="fa fa-plus-circle" aria-hidden="true"></i> Data
                                 Kepelatihan</a>
                         </div>
                         <!-- /.tab-pane -->

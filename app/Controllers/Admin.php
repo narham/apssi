@@ -36,6 +36,6 @@ class Admin extends BaseController
         ];
 
 
-        return view('admin/dashboard', $data);
+        return view('Admin/dashboard', $data);
     }
 }
